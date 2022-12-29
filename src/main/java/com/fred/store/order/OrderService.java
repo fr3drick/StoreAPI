@@ -34,7 +34,7 @@ public class OrderService {
 	public Customer linkOrderToCustomer(LinkRequest linkRequest) {
 		Order order = orderRepository.findById(linkRequest.getOrder_id()).orElse(null);
 		Customer customer = customerRepository.findById(linkRequest.getCust_id()).orElse(null);
-		List<Order> orderList = new ArrayList<Order>();
+		List<Order> orderList = customer.getOrders();
 		orderList.add(order);
 		customer.setOrders(orderList);
 		
