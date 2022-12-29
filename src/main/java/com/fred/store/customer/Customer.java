@@ -15,8 +15,6 @@ import lombok.*;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "store_customer")
 public class Customer {
 

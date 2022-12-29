@@ -14,9 +14,15 @@
 	<name>StoreAPI</name>
 	<description>Store API project</description>
 	<properties>
-		<java.version>19</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -25,6 +31,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+		<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-beans</artifactId>
+ 
+</dependency>
+
 
 		<dependency>
 			<groupId>com.mysql</groupId>
@@ -59,6 +72,13 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+			<plugin>    
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+            <release>17</release>
+        </configuration>
+    </plugin>
 		</plugins>
 	</build>
 
