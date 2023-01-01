@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    volumes:
+      - storeapi-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: test1234$
+      MYSQL_DATABASE: apidb
+
+  storeapi:
+    image: fr3drick/storeapirunnerjar
+    ports:
+      - 9090:9090
+
+volumes:
+  storeapi-mysql-data:
