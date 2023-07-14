@@ -1,8 +1,10 @@
 package com.fred.store.dto;
 
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @ToString
+@NoArgsConstructor
 public class LinkRequest {
 
 	private int cust_id;
