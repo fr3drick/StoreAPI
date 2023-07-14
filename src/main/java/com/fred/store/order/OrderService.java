@@ -2,7 +2,7 @@ package com.fred.store.order;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.fred.store.exceptions.OrderAlreadyLinkedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,10 +31,14 @@ public class OrderService {
 		return orderRepository.findAll();
 	}
 	
-	public Customer linkOrderToCustomer(LinkRequest linkRequest) {
+	public Customer linkOrderToCustomer(LinkRequest linkRequest) throws OrderAlreadyLinkedException {
 		Order order = orderRepository.findById(linkRequest.getOrder_id()).orElse(null);
 		Customer customer = customerRepository.findById(linkRequest.getCust_id()).orElse(null);
 		List<Order> orderList = customer.getOrders();
+		if(orderList.contains(order))
+		{
+			throw  new OrderAlreadyLinkedException("Order already linked");
+		};
 		orderList.add(order);
 		customer.setOrders(orderList);
 		

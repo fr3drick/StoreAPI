@@ -1,0 +1,8 @@
+target/
+target/**/*
+.classpath
+log/
+log/**/*
+.factorypath
+README.md
+Dockerfile

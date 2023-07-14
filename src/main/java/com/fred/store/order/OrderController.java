@@ -2,7 +2,9 @@ package com.fred.store.order;
 
 import java.util.List;
 
+import com.fred.store.exceptions.OrderAlreadyLinkedException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +37,12 @@ public class OrderController {
 	}
 	
 	@PostMapping("/linkOrder")
-	public Customer linkOrderToCustomer(@RequestBody LinkRequest linkRequest) {
-		return orderService.linkOrderToCustomer(linkRequest);
+	public ResponseEntity<?> linkOrderToCustomer(@RequestBody LinkRequest linkRequest) {
+		try {
+			Customer customer = orderService.linkOrderToCustomer(linkRequest);
+			return ResponseEntity.ok(customer);
+		} catch (OrderAlreadyLinkedException e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
+		}
 	}
 }

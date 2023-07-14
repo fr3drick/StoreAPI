@@ -3,6 +3,11 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+log/
+.classpath
+.factorypath
+.mvn/
+Dockerfile
 
 ### STS ###
 .apt_generated
