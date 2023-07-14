@@ -1,8 +1,11 @@
-target/
-target/**/*
+#target/
+#target/**/*
 .classpath
 log/
 log/**/*
 .factorypath
 README.md
 Dockerfile
+.gitignore
+.idea
+mvnw.cmd

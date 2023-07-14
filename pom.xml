@@ -14,7 +14,7 @@
 	<name>StoreAPI</name>
 	<description>Store API project</description>
 	<properties>
-		<java.version>19</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -66,7 +66,7 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<release>19</release>
+					<release>17</release>
 				</configuration>
 			</plugin>
 		</plugins>
