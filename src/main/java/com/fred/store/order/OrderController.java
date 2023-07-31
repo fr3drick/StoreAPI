@@ -2,6 +2,7 @@ package com.fred.store.order;
 
 import java.util.List;
 
+import com.fred.store.exceptions.ErrorResponse;
 import com.fred.store.exceptions.NullCustomerOrderException;
 import com.fred.store.exceptions.OrderAlreadyLinkedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +44,10 @@ public class OrderController {
 			Customer customer = orderService.linkOrderToCustomer(linkRequest);
 			return ResponseEntity.ok(customer);
 		} catch (OrderAlreadyLinkedException e) {
-			return ResponseEntity.badRequest().body(e.getMessage());
+			return ResponseEntity.badRequest().body(new ErrorResponse(e.getMessage()));
 		}
 		catch (NullCustomerOrderException e){
-			return ResponseEntity.badRequest().body(e.getMessage());
+			return ResponseEntity.badRequest().body(new ErrorResponse(e.getMessage()));
 		}
 	}
 }
